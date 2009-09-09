@@ -1,0 +1,4 @@
+ * include jquery.translations.js
+ * setup server actions to provide current locale and translations
+ * $.t('accounts') # => Accounts   ($.internationale.locale == 'en')
+ * $.t('accounts') # => アカウント ($.internationale.locale == 'ja')
