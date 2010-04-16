@@ -28,9 +28,18 @@ $(function() {
     }
   })
 
-  $.internationale.translate = function(key) {
+  $.internationale.translate = function(key, options) {
     var translation = $.internationale.translations[$.internationale.locale][key];
-    if (!translation) translation = key;
+    if (translation) {
+      if (arguments.length > 1) {
+        args = arguments[1];
+        for (k in args) {
+          translation = translation.replace('{{' + k + '}}', args[k]);
+        }
+      }
+    } else {
+      translation = key;
+    }
     return translation;
   }
 
